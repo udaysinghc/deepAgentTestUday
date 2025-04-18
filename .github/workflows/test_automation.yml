@@ -1,6 +1,8 @@
-name: Tests automation
+name: Deep Agent Suit
 
 on:
+  schedule:
+    - cron: '0 13 * * *'  # 8 AM EST (13:00 UTC)
   push:
     branches: [ "main" ]
   pull_request:
@@ -14,7 +16,7 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     
     steps:
     - uses: actions/checkout@v4
