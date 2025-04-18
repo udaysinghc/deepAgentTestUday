@@ -7,7 +7,7 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest  # Changed to Windows runner
 
     steps:
       - name: Checkout repository
@@ -20,6 +20,7 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
+        shell: pwsh
         run: |
           Write-Host "Installing dependencies..."
           npm install
@@ -28,11 +29,12 @@ jobs:
           New-Item -ItemType Directory -Force -Path .\test-results
 
       - name: Run Tests
+        shell: pwsh
         env:
           NODE_OPTIONS: --experimental-vm-modules --no-warnings
-          EXPORT_PATH: ${{ github.workspace }}/exports
-          REPORT_PATH: ${{ github.workspace }}/reports
-          TEST_RESULTS: ${{ github.workspace }}/test-results
+          EXPORT_PATH: ${{ github.workspace }}\exports
+          REPORT_PATH: ${{ github.workspace }}\reports
+          TEST_RESULTS: ${{ github.workspace }}\test-results
         run: |
           npm run test
 
