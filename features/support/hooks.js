@@ -1,10 +1,8 @@
 import { Before, After, BeforeAll, AfterAll, setDefaultTimeout } from '@cucumber/cucumber';
-import { chromium } from 'playwright';
+import { chromium } from '@playwright/test';
 import fs from 'fs';
-import { fileURLToPath } from 'url';
-import { dirname } from 'path';
+import path from 'path';
 
-// Set a longer default timeout for all steps
 setDefaultTimeout(1500000);
 
 // Ensure the reports directory exists

@@ -5,9 +5,6 @@ let dashboardPage;
 
 When("I click the deep Agent option", { timeout: 10000 }, async function () {
   dashboardPage = new DashboardPage(this.page);
-  // await dashboardPage.clickRouteDropdown();
-  // await dashboardPage.page.waitForTimeout(3000);
-  // await dashboardPage.clickRouteDropdown();
   await dashboardPage.clickOnDeeAgent();
 
   // Handle new tab opening
